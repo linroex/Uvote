@@ -28,4 +28,5 @@ class IssuesVote extends Eloquent{
         ];
     }
     
+    
 }

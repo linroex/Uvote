@@ -23,7 +23,7 @@ class Issues extends Eloquent{
     public static function getIssues($category_id = ''){
         // 取得議題或按分類，分類ID=0代表所有資料
         if($category_id == ''){
-            return self::all();
+            return self::all()->sortBy('created_at')->reverse();
         }else{
             return self::where('category','=',$category_id)->get();
         }

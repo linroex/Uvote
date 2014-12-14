@@ -11,14 +11,20 @@
 |
 */
 
-Route::get('/', function()
-{
-    if(Session::has('fb_token')){
-        Facebook::setAccessToken(Session::get('fb_token'));
-    }else{
-        return Redirect::to('/login');
-    }
-    
-});
+Route::get('/', 'HomeController@showIndex');
 Route::get('/login', 'LoginController@Login');
+Route::get('/register', 'LoginController@showRegisterPage');
+Route::post('/register', 'UserController@register');
 Route::get('/login/callback', 'LoginController@Login_callback');
+Route::group(['prefix'=>'issue'], function(){
+    
+    Route::group(['before'=>'auth'], function(){
+        Route::get('/add','IssueController@showIssueAddPage');
+        Route::post('/add','IssueController@addIssue');    
+        Route::post('/{issue_id}/comment', 'CommentsController@addComments');
+        Route::get('/{issue_id}/agree', 'IssueController@voteAgreeIssue');
+        Route::get('/{issue_id}/disagree', 'IssueController@voteDisAgreeIssue');
+    });
+    Route::get('/{issue_id}', 'IssueController@showSingleIssuePage');
+});
+

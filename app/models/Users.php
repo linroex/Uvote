@@ -18,17 +18,6 @@ class Users extends Eloquent{
 		return self::where('fbid','=',$fbid)->first();
 
 	}
-	public static function checkUserPasswd($username, $password){
-		try{
-			if(Hash::check($password, self::where('username','=',$username)->first()->password)){
-				return true;
-			}else{
-				return false;
-			}	
-		}catch(ErrorException $e){
-			return false;
-		}
-	}
-
+	
 	
 }
