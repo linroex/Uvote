@@ -5,13 +5,14 @@ class ExampleTest extends TestCase {
 	/**
 	 * A basic functional test example.
 	 *
-	 * @return void
+	 * @dataProvider issuesDataProvider
 	 */
-	public function testBasicExample()
+	public function testBasicExample($title, $content, $category, $uid)
 	{
-		$crawler = $this->client->request('GET', '/');
-
-		$this->assertTrue($this->client->getResponse()->isOk());
+		$id = Issues::createIssue($title, $content, $category, $uid)['id'];
+		
+		$this->assertEquals($title,Issues::getIssueData($id)->title);
 	}
+	
 
 }

@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => getenv('UVOTE_DB_HOST'),
-			'database'  => getenv('UVOTE_DB_NAME'),
-			'username'  => getenv('UVOTE_DB_USERNAME'),
-			'password'  => getenv('UVOTE_DB_PASSWD'),
+			'host'      => $_ENV['UVOTE_DB_HOST'],
+			'database'  => $_ENV['UVOTE_DB_NAME'],
+			'username'  => $_ENV['UVOTE_DB_USERNAME'],
+			'password'  => $_ENV['UVOTE_DB_PASSWD'],
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

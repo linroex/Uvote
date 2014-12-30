@@ -9,8 +9,8 @@ return [
      *
      * Add an app: https://developers.facebook.com/apps
      */
-    'app_id' => getenv('UVOTE_FB_APP_ID'),
-    'app_secret' => getenv('UVOTE_FB_APP_SECRET'),
+    'app_id' => $_ENV['UVOTE_FB_APP_ID'],
+    'app_secret' => $_ENV['UVOTE_FB_APP_SECRET'],
 
     /*
      * The default list of permissions that are
