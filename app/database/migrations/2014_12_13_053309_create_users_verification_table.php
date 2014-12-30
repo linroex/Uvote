@@ -17,6 +17,7 @@ class CreateUsersVerificationTable extends Migration {
 			$table->increments('id');
 			$table->bigInteger('uid');
 			$table->string('token')->unique();
+			$table->boolean('enable')->default(True);
 			$table->timestamps();
 		});
 	}
