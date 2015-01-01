@@ -15,16 +15,19 @@ class UsersDetail extends Eloquent{
             'email'=>$email,
             'email_edu'=>$email_edu,
             'department'=>$department,
-            'status'=>1
+            'status'=>0
         ]);
     }
     public static function getUserData($uid){
         return self::find($uid);
     }
-    
+    public static function getUserAvatar($uid){
+        return self::find($uid)->avatar;
+    }
     public static function getUserStatus($uid){
-
         return self::find($uid)->status;
     }
-    
+    public static function enableUser($uid){
+        self::where('uid','=',$uid)->update(['status'=>True]);
+    }
 }

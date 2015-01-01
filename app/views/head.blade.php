@@ -11,6 +11,7 @@
 <script>
     
     $(document).ready(function(){
-        $('.issue-main-content').html(marked($('.issue-main-content').text().trim()));
+        // $('.issue-main-content').html(marked($('.issue-main-content').text().trim()));
+        $('.issue-main-content').html($('.issue-main-content').html().replace(/\n/g,"<br/>"));
     })
 </script>

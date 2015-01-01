@@ -15,12 +15,15 @@ class IssueController extends Controller{
         return View::make('issue')->with([
             'data'=>$data,
             'voteNum'=>IssuesVote::countVoteNum($issue_id),
-            'comments'=>IssuesComments::getComments($issue_id)
+            'comments'=>IssuesComments::getComments($issue_id),
+            'author'=>Users::getUserByUID($data->uid)->name,
+            'image'=>UsersDetail::getUserData($data->uid)->avatar
 
         ]);
     }
     public function voteAgreeIssue($issue_id){
         // 要增加取消投票功能
+        
         IssuesVote::vote($issue_id, 'agree', Session::get('user')['id']);
         return Redirect::to('/issue/' . $issue_id);
     }

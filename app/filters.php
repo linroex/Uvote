@@ -38,6 +38,9 @@ Route::filter('auth', function()
 	if(!Session::has('user')){
 		return Redirect::to('/login');
 	}
+	if(Session::get('user_status') == False){
+		return Redirect::to('/')->with('msg','您尚未通過驗證');
+	}
 });
 
 

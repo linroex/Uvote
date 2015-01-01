@@ -11,7 +11,7 @@
       <img src="{{url('/images/main-logo.svg')}}">
     </section>
 
-    <div class="issue_filters_wrapper">
+    <!-- <div class="issue_filters_wrapper">
       <div class="issue_filters search-tools">
         <div class="search">
           <label>搜尋議題</label>
@@ -44,7 +44,7 @@
           <button>尋找議題</button>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <section class="main index issue-list">
 

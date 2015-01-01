@@ -16,7 +16,9 @@ class Users extends Eloquent{
 	}
 	public static function getUser($fbid){
 		return self::where('fbid','=',$fbid)->first();
-
+	}
+	public static function getUserByUID($uid){
+		return self::where('id','=',$uid)->first();	
 	}
 	
 	

@@ -14,10 +14,16 @@ class IssuesVote extends Eloquent{
                 'uid'=>$uid
             ]);    
         }else{
-            return false;
+            // 已經投出贊成票，卻又想投反對票的情況
+            self::unvote($issue_id, $uid);
+            return self::create([
+                'issue_id'=>$issue_id,
+                'type'=>$type,
+                'uid'=>$uid
+            ]);    
         }
-        
     }
+
     public static function unvote($issue_id, $uid){
         return self::whereRaw('issue_id = ? and uid = ?',[$issue_id, $uid])->delete();
     }

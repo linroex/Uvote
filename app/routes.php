@@ -12,10 +12,15 @@
 */
 
 Route::get('/', 'HomeController@showIndex');
+Route::get('/legal',function(){
+    return View::make('legal');
+});
 Route::get('/login', 'LoginController@Login');
 Route::get('/register', 'LoginController@showRegisterPage');
 Route::post('/register', 'UserController@register');
 Route::get('/login/callback', 'LoginController@Login_callback');
+Route::get('/verifiy/generate', 'UserController@sendVerifiyEmail');
+Route::get('/verifiy', 'UserController@Verifiy');
 Route::group(['prefix'=>'issue'], function(){
     
     Route::group(['before'=>'auth'], function(){
@@ -28,4 +33,3 @@ Route::group(['prefix'=>'issue'], function(){
     Route::get('/{issue_id}', 'IssueController@showSingleIssuePage');
     
 });
-

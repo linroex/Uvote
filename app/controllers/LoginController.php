@@ -26,7 +26,9 @@ class LoginController extends Controller{
         
         if(Users::existsUser($user['id'])){
             $data = Users::getUser($user['id']);
+            $status = UsersDetail::getUserStatus($data->id);
             Session::put('user',$data);
+            Session::put('user_status',$status);
             return Redirect::to('/');
         }else{
             return Redirect::to('register');
