@@ -1,7 +1,7 @@
 <!doctype html>
 <html class="no-js" lang="">
   <head>
-    @include('head',['page_title'=>'檢視提案'])
+    @include('head',['page_title'=>$data->title])
   </head>
   <body>
     @include('menu')
