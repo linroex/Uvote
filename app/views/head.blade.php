@@ -5,6 +5,7 @@
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 <link rel="stylesheet" href="{{url('styles/main.css')}}">
+<meta property="og:image" content="{{url('/images/banner.jpg')}}">  
 <script src="{{url('scripts/vendor/modernizr.js')}}"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="{{url('bower_components/marked/lib/marked.js')}}"></script>
