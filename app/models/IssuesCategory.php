@@ -12,5 +12,5 @@ class IssuesCategory extends Eloquent{
     public static function getCategoryName($id){
         return self::find($id)->name;
     }
-    
+
 }

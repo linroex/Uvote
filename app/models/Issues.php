@@ -33,5 +33,5 @@ class Issues extends Eloquent{
         // 刪除議題
         return self::find($issue_id)->delete();
     }
-    
+
 }

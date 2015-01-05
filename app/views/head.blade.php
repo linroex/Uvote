@@ -9,7 +9,7 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="{{url('bower_components/marked/lib/marked.js')}}"></script>
 <script>
-    
+
     $(document).ready(function(){
         $('.issue-main-content').html(marked($('.issue-main-content').text().trim(),{breaks:true}));
         // $('.issue-main-content').html($('.issue-main-content').html().replace(/\n/g,"<br/>"));

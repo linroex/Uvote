@@ -16,9 +16,9 @@ class UserController extends Controller{
                 $user['email'] = $user['id'] . '@facebook.com';
             }
 
-            UsersDetail::createUserData($uid, $avatar, 'student', $user['email'], Input::get('email_edu'), Input::get('department'));    
+            UsersDetail::createUserData($uid, $avatar, 'student', $user['email'], Input::get('email_edu'), Input::get('department'));
         });
-        
+
         $user = Facebook::object('/me')->get();
         $data = Users::getUser($user['id']);
         Session::put('user',$data);
@@ -39,7 +39,7 @@ class UserController extends Controller{
             });
             return Redirect::to('/')->with('msg','註冊成功，請到信箱收取驗證信');
         }
-        
+
     }
     public function Verifiy(){
         $resp = UserVerifiy::checkToken(Input::get('token'));

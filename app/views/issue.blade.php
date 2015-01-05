@@ -38,13 +38,13 @@
           {{{$data->content}}}
         </div>
       </div>
-      
+
     </div>
 
   </div>
   <hr>
   <div class="comments">
-    
+
     <div class="new_comment">
       <form action="{{url('/issue/' . $data->id . '/comment')}}" method="post">
 
@@ -54,7 +54,7 @@
         <input type="submit" value="送出" style="float:right;font-size:30px;">
       </form>
     </div>
-    
+
     @foreach($comments as $comment)
       @if($comment->type == 'offical')
         <div class="comment opposite">
@@ -68,7 +68,7 @@
         </div>
       @endif
     @endforeach
-    
+
   </div>
 </section>
 <!-- Start of Foot -->

@@ -23,7 +23,7 @@ class IssueController extends Controller{
     }
     public function voteAgreeIssue($issue_id){
         // 要增加取消投票功能
-        
+
         IssuesVote::vote($issue_id, 'agree', Session::get('user')['id']);
         return Redirect::to('/issue/' . $issue_id);
     }

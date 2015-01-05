@@ -12,7 +12,7 @@ class IssuesVote extends Eloquent{
                 'issue_id'=>$issue_id,
                 'type'=>$type,
                 'uid'=>$uid
-            ]);    
+            ]);
         }else{
             // 已經投出贊成票，卻又想投反對票的情況
             self::unvote($issue_id, $uid);
@@ -20,7 +20,7 @@ class IssuesVote extends Eloquent{
                 'issue_id'=>$issue_id,
                 'type'=>$type,
                 'uid'=>$uid
-            ]);    
+            ]);
         }
     }
 
@@ -33,6 +33,6 @@ class IssuesVote extends Eloquent{
             'disagree'=>self::whereRaw('type = ? and issue_id = ?',['disagree', $issue_id])->count()
         ];
     }
-    
-    
+
+
 }

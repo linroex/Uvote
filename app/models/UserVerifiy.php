@@ -20,7 +20,7 @@ class UserVerifiy extends Eloquent{
                     'enable'=>True
                 ]);
             });
-            
+
             return $token;
         }
     }

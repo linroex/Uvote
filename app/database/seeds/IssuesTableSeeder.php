@@ -24,7 +24,7 @@ class IssuesTableSeeder extends Seeder {
 
         IssuesVote::vote(2, 'agree', 1);
         IssuesVote::vote(2, 'agree', 2);
-        
+
     }
 
 }

@@ -19,5 +19,5 @@ class IssuesComments extends Eloquent{
     public static function countComments($issue_id){
         return self::whereRaw('issue_id = ?',[$issue_id])->join('users_detail','users_detail.uid','=','issues_comments.uid')->count();
     }
-    
+
 }

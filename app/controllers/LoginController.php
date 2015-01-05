@@ -19,11 +19,11 @@ class LoginController extends Controller{
             Facebook::setAccessToken($token);
             Session::put('fb_token',$token);
 
-            $user = Facebook::object('/me')->get();    
+            $user = Facebook::object('/me')->get();
         }catch(Exception $e){
             return Redirect::to('/');
         }
-        
+
         if(Users::existsUser($user['id'])){
             $data = Users::getUser($user['id']);
             $status = UsersDetail::getUserStatus($data->id);
@@ -32,8 +32,8 @@ class LoginController extends Controller{
             return Redirect::to('/');
         }else{
             return Redirect::to('register');
-            
+
         }
-        
+
     }
 }

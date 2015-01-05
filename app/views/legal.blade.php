@@ -11,7 +11,7 @@
       <img src="{{url('/images/main-logo.svg')}}">
     </section>
 
-    
+
 
     <section class="main index issue-list">
 

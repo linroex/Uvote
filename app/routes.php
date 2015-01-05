@@ -22,14 +22,14 @@ Route::get('/login/callback', 'LoginController@Login_callback');
 Route::get('/verifiy/generate', 'UserController@sendVerifiyEmail');
 Route::get('/verifiy', 'UserController@Verifiy');
 Route::group(['prefix'=>'issue'], function(){
-    
+
     Route::group(['before'=>'auth'], function(){
         Route::get('/add','IssueController@showIssueAddPage');
-        Route::post('/add','IssueController@addIssue');    
+        Route::post('/add','IssueController@addIssue');
         Route::post('/{issue_id}/comment', 'CommentsController@addComments');
         Route::get('/{issue_id}/agree', 'IssueController@voteAgreeIssue');
         Route::get('/{issue_id}/disagree', 'IssueController@voteDisAgreeIssue');
     });
     Route::get('/{issue_id}', 'IssueController@showSingleIssuePage');
-    
+
 });
