@@ -33,3 +33,4 @@ class CreateIssuesOfficalCommentsTable extends Migration {
 	}
 
 }
+

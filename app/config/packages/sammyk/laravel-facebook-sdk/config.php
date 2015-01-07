@@ -52,3 +52,4 @@ return [
     'channel_endpoint' => '/channel.html',
 
     ];
+

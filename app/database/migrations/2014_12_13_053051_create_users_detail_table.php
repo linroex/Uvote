@@ -36,3 +36,4 @@ class CreateUsersDetailTable extends Migration {
 	}
 
 }
+

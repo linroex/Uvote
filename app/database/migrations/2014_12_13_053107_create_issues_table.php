@@ -35,3 +35,4 @@ class CreateIssuesTable extends Migration {
 	}
 
 }
+

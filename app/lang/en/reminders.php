@@ -24,3 +24,4 @@ return array(
 	"reset" => "Password has been reset!",
 
 );
+

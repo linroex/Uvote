@@ -33,3 +33,4 @@ class CreateIssuesVoteTable extends Migration {
 	}
 
 }
+

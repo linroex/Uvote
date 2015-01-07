@@ -33,3 +33,4 @@ Route::group(['prefix'=>'issue'], function(){
     Route::get('/{issue_id}', 'IssueController@showSingleIssuePage');
 
 });
+

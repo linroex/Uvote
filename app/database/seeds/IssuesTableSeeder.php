@@ -28,3 +28,4 @@ class IssuesTableSeeder extends Seeder {
     }
 
 }
+

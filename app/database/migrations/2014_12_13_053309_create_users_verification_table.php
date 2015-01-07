@@ -33,3 +33,4 @@ class CreateUsersVerificationTable extends Migration {
 	}
 
 }
+

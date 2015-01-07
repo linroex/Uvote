@@ -18,3 +18,4 @@ return array(
 	'next'     => 'Next &raquo;',
 
 );
+
