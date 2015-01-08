@@ -16,4 +16,7 @@
 
         // Google Analytics settings
         'google_analytics'    => ''
+
+        // Encryption key for laravel
+        'ENCRYPTION_KEY'      => ''
     ];
