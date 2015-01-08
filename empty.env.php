@@ -15,7 +15,7 @@
         'UVOTE_FB_APP_SECRET' => '',
 
         // Google Analytics settings
-        'google_analytics'    => ''
+        'google_analytics'    => '',
 
         // Encryption key for laravel
         'ENCRYPTION_KEY'      => ''
