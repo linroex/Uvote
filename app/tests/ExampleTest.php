@@ -9,9 +9,15 @@ class ExampleTest extends TestCase {
 	 */
 	public function testBasicExample($title, $content, $category, $uid)
 	{
-		$id = Issues::createIssue($title, $content, $category, $uid)['id'];
+        $issue = Issues::create([
+            'title' => $title,
+            'content' => $contentm,
+            'category' => $category,
+            'uid' => $uid
+        ]);
+        $id = $issue->id;
 
-		$this->assertEquals($title,Issues::getIssueData($id)->title);
+		$this->assertEquals($title, Issues::find($id)->title);
 	}
 
 

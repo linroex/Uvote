@@ -2,16 +2,19 @@
 class IssueController extends Controller{
     public function showIssueAddPage(){
         return View::make('new_issue')->with([
-            'categorys'=>IssuesCategory::listCategory()
+            'categorys'=>IssuesCategory::all()
         ]);
     }
     public function addIssue(){
-        $issue = Issues::createIssue(Input::get('title'), Input::get('content'), Input::get('category'), Session::get('user')['id']);
+        $issue = new Issues();
+        $issue->fill(Input::only(['title', 'content', 'category']))
+        $issue->uid = Session::get('user')['id'];
+        $issue->save();
 
         return Redirect::to('/issue/' . $issue['id']);
     }
     public function showSingleIssuePage($issue_id){
-        $data = Issues::getIssueData($issue_id);
+        $data = Issues::find($issue_id);
         return View::make('issue')->with([
             'data'=>$data,
             'voteNum'=>IssuesVote::countVoteNum($issue_id),
