@@ -7,15 +7,13 @@ class UserController extends Controller{
         if(strpos(Input::get('email_edu'), '@mail.ntust.edu.tw') === false){
             return Redirect::to('/register')->with('msg','此服務限國立台灣科技大學 學生使用');
         }
-        DB::transaction(function(){
-            $user = Facebook::object('/me')->get();
+        $user = Facebook::object('/me')->get();
+        $avatar = Facebook::object('/me/picture?redirect=false&width=500')->get()['url'];
+        if(!isset($user['email'])) {
+            $user['email'] = $user['id'] . '@facebook.com';
+        }
+        DB::transaction(function() {
             $uid = Users::createUser($user['name'],$user['id']);
-            $avatar = Facebook::object('/me/picture?redirect=false&width=500')->get()['url'];
-
-            if(!isset($user['email'])){
-                $user['email'] = $user['id'] . '@facebook.com';
-            }
-
             UsersDetail::createUserData($uid, $avatar, 'student', $user['email'], Input::get('email_edu'), Input::get('department'));
         });
 
