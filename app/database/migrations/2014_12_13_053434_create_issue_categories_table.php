@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssuesVoteTable extends Migration {
+class CreateIssueCategoryTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,13 +12,10 @@ class CreateIssuesVoteTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('issues_vote', function(Blueprint $table)
+		Schema::create('issue_categories', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->bigInteger('issue_id');
-			$table->bigInteger('uid');
-			$table->enum('type',['agree', 'disagree']);
-			$table->timestamps();
+			$table->string('name');
 		});
 	}
 
@@ -29,7 +26,7 @@ class CreateIssuesVoteTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('issues_vote');
+		Schema::drop('issue_categories');
 	}
 
 }

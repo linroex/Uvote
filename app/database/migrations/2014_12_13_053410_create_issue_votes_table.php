@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssuesCommentsTable extends Migration {
+class CreateIssueVotesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,12 +12,12 @@ class CreateIssuesCommentsTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('issues_comments', function(Blueprint $table)
+		Schema::create('issue_votes', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->bigInteger('uid');
-			$table->bigInteger('issue_id');
-			$table->mediumText('content');
+			$table->foreign('issue_id')->reference('id')->on('issues');
+			$table->foreign('user_id')->reference('id')->on('users');
+			$table->enum('type',['agree', 'disagree']);
 			$table->timestamps();
 		});
 	}
@@ -29,7 +29,7 @@ class CreateIssuesCommentsTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('issues_comments');
+		Schema::drop('issue_votes');
 	}
 
 }

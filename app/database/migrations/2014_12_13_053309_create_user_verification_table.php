@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateUsersVerificationTable extends Migration {
+class CreateUserVerificationTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,10 +12,10 @@ class CreateUsersVerificationTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('users_verification', function(Blueprint $table)
+		Schema::create('user_verification', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->bigInteger('uid');
+			$table->foriegn('user_id')->reference('id')->on('users');
 			$table->string('token')->unique();
 			$table->boolean('enable')->default(True);
 			$table->timestamps();
@@ -29,7 +29,7 @@ class CreateUsersVerificationTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('users_verification');
+		Schema::drop('user_verification');
 	}
 
 }
