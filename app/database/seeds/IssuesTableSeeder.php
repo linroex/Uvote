@@ -39,10 +39,32 @@ class IssuesTableSeeder extends Seeder {
         foreach ($issues as $issue_content)
             Issues::create($issue_content);
 
-        IssuesComments::createComment(1, '測試回應1', 1);
-        IssuesComments::createComment(1, '測試回應2', 1);
-        IssuesComments::createComment(1, '測試回應：官方', 2);
-        IssuesComments::createComment(1, '測試回應4', 1);
+
+        $comments = [
+            [
+                'issue_id' => 1,
+                'content' => '測試回應1',
+                'uid' => 1
+            ],
+            [
+                'issue_id' => 1,
+                'content' => '測試回應2',
+                'uid' => 1
+            ],
+            [
+                'issue_id' => 1,
+                'content' => '測試回應：官方',
+                'uid' => 2
+            ],
+            [
+                'issue_id' => 1,
+                'content' => '測試回應4',
+                'uid' => 1
+            ],
+        ];
+
+        foreach ($comments as $comment)
+            IssuesComments::create($comment);
 
         IssuesVote::vote(1, 'agree', 1);
         IssuesVote::vote(1, 'disagree', 2);
