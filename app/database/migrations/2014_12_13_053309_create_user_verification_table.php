@@ -14,8 +14,8 @@ class CreateUserVerificationTable extends Migration {
 	{
 		Schema::create('user_verification', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->foriegn('user_id')->reference('id')->on('users');
+			$table->increments('id')->primary();
+			$table->integer('user_id')->foreign('user_id')->reference('id')->on('users');
 			$table->string('token')->unique();
 			$table->boolean('enable')->default(True);
 			$table->timestamps();

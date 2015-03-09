@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateIssueCategoryTable extends Migration {
+class CreateIssueCategoriesTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,7 +14,7 @@ class CreateIssueCategoryTable extends Migration {
 	{
 		Schema::create('issue_categories', function(Blueprint $table)
 		{
-			$table->increments('id');
+			$table->increments('id')->primary();
 			$table->string('name');
 		});
 	}

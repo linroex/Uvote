@@ -14,9 +14,9 @@ class CreateIssueVotesTable extends Migration {
 	{
 		Schema::create('issue_votes', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->foreign('issue_id')->reference('id')->on('issues');
-			$table->foreign('user_id')->reference('id')->on('users');
+			$table->increments('id')->primary();
+			$table->integer('user_id')->foreign('user_id')->reference('id')->on('users');
+			$table->integer('issue_id')->foreign('issue_id')->reference('id')->on('issues');
 			$table->enum('type',['agree', 'disagree']);
 			$table->timestamps();
 		});

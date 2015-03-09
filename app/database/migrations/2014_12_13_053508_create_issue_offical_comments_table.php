@@ -14,9 +14,9 @@ class CreateIssueOfficalCommentsTable extends Migration {
 	{
 		Schema::create('issue_offical_comments', function(Blueprint $table)
 		{
-			$table->increments('id');
-			$table->foreign('user_id')->reference('id')->on('users');
-			$table->foreign('issue_id')->reference('id')->on('issues');
+			$table->increments('id')->primary();
+			$table->integer('user_id')->foreign('user_id')->reference('id')->on('users');
+			$table->integer('issue_id')->foreign('issue_id')->reference('id')->on('issues');
 			$table->mediumText('content');
 			$table->timestamps();
 		});

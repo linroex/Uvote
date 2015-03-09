@@ -13,24 +13,25 @@ class LoginController extends Controller{
         }
     }
     public function Login_callback(){
-        try{
+        try {
             $token = Facebook::getTokenFromRedirect(url('/login/callback'));
 
             Facebook::setAccessToken($token);
-            Session::put('fb_token',$token);
+            Session::put('fb_token', $token);
 
-            $user = Facebook::object('/me')->get();
-        }catch(Exception $e){
+            $fb_user = Facebook::object('/me')->get();
+            $fb_id = $fb_user['id'];
+        } catch(Exception $e) {
             return Redirect::to('/');
         }
 
-        if(Users::existsUser($user['id'])){
-            $data = Users::getUser($user['id']);
-            $status = UsersDetail::getUserStatus($data->id);
-            Session::put('user',$data);
-            Session::put('user_status',$status);
+        $user = Users::find($fb_id)
+        if ($user !== null){
+            $status = UsersDetail::getUserStatus($user->id);
+            Session::put('user', $user);
+            Session::put('user_status', $status);
             return Redirect::to('/');
-        }else{
+        } else {
             return Redirect::to('register');
 
         }
