@@ -1,7 +1,7 @@
 <meta charset="utf-8">
-<meta name="description" content="uVote 校園公投平台">
+<meta name="description" content="附中議言堂 HSNUVOTE">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-<title>{{$page_title}} - Uvote 校園公投平台</title>
+<title>{{$page_title}} - 附中議言堂 HSNUVOTE</title>
 <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 <link rel="stylesheet" href="{{url('styles/main.css')}}">

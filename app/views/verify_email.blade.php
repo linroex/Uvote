@@ -17,7 +17,7 @@
       <p><label for="department">系所</label>
         <input type="text" id="department" name="department">
       </p>
-      <p><input type="checkbox" name="legal"> 我同意遵守 Uvote 使用者條款</p>
+      <p><input type="checkbox" name="legal"> 我同意遵守 附中議言堂 HSNUVOTE 使用者條款</p>
       <p><input class="button" type="submit" value="Submit"></p>
     </form>
   </fieldset>
