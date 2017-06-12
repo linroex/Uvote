@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'no-reply@uvote.cc', 'name' => 'Uvote 校園公投平台'),
+	'from' => $_ENV['MAIL_FROM'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => $_ENV['smtp.user'],
+	'username' => $_ENV['SMTP_USER'],
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +93,7 @@ return array(
 	|
 	*/
 
-	'password' => $_ENV['smtp.passwd'],
+	'password' => $_ENV['SMTP_PWD'],
 
 	/*
 	|--------------------------------------------------------------------------
